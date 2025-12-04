@@ -1,5 +1,20 @@
 -- 1. Limpieza previa (Opcional, útil para reiniciar)
+DROP TABLE IF EXISTS public.shipment_item;
+DROP TABLE IF EXISTS public.shipment;
+DROP TABLE IF EXISTS public.order_product;
+DROP TABLE IF EXISTS public.order;
+DROP TABLE IF EXISTS public.item;
+DROP TABLE IF EXISTS public.product;
+DROP TABLE IF EXISTS public.discount;
+DROP TABLE IF EXISTS tax_rate;
+DROP TABLE IF EXISTS category_secondary;
+DROP TABLE IF EXISTS category_main;
+DROP TABLE IF EXISTS public.address;
+DROP TABLE IF EXISTS public.customer;
+DROP TABLE IF EXISTS public.user;
+
 DROP TYPE IF EXISTS public.inventory_status CASCADE;
+DROP TYPE IF EXISTS public.item_color CASCADE;
 DROP TYPE IF EXISTS public.order_status CASCADE;
 DROP TYPE IF EXISTS public.shipment_status CASCADE;
 DROP TYPE IF EXISTS public.payment_method_enum CASCADE; -- Renombrado para evitar conflictos con palabras clave
@@ -12,6 +27,12 @@ CREATE TYPE public.inventory_status AS ENUM (
     'SOLD',
     'DEFECTIVE',
     'RETURNED'
+);
+
+CREATE TYPE public.item_color AS ENUM (
+  'BLACK',
+  'WHITE',
+  'RED'
 );
 
 CREATE TYPE public.order_status AS ENUM (
@@ -152,7 +173,7 @@ CREATE TABLE public.item (
   sale_date timestamp with time zone,
   status public.inventory_status NOT NULL DEFAULT 'AVAILABLE'::public.inventory_status, -- Uso del ENUM
   unit_cost numeric NOT NULL,
-  color character varying NOT NULL,
+  color item_color NOT NULL,
   CONSTRAINT item_pkey PRIMARY KEY (id),
   CONSTRAINT item_product_id_fkey FOREIGN KEY (product_id) REFERENCES public.product(id)
 );

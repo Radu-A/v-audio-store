@@ -218,8 +218,14 @@ SELECT
     p.id as product_id,
     -- Generar serial tipo 'PROD-001-SN-1024'
     UPPER(SUBSTRING(p.name FROM 1 FOR 3)) || '-' || p.id || '-SN-' || (1000 + gs.num) as serial,
-    (p.price * 0.60) as unit_cost, -- Coste estimado al 60% del PVP
-    CASE WHEN gs.num % 2 = 0 THEN 'NEGRO' ELSE 'BLANCO' END as color, -- Alternar colores
+    (p.price * 0.60) as unit_cost, 
+    -- CORRECCIÓN AQUÍ:
+    -- Usamos CASE para alternar entre los valores válidos del ENUM ('BLACK' y 'WHITE')
+    -- Y hacemos el cast explícito a ::public.item_color para evitar dudas al motor
+    CASE 
+        WHEN gs.num % 2 = 0 THEN 'BLACK'::public.item_color 
+        ELSE 'WHITE'::public.item_color 
+    END as color,
     'AVAILABLE'::public.inventory_status
 FROM public.product p
 CROSS JOIN generate_series(1, 5) as gs(num);
