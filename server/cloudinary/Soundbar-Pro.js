@@ -1,1 +1,0 @@
-export const Soundbar_Pro = ["Soundbar-Pro-Front-Black_ncyxkl","Soundbar-Pro-Front-Red_wtcorm","Soundbar-Pro-Front-White_grgsot","Soundbar-Pro-General-Black_mrbw3q","Soundbar-Pro-General-Red_o5e6xs","Soundbar-Pro-General-White_idfxhc"];

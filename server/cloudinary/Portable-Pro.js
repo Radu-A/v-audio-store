@@ -1,1 +1,0 @@
-export const Portable_Pro = ["Portable-Pro-Side-Black_oanldi","Portable-Pro-Side-Red_jdch0g","Portable-Pro-Side-White_ynkv2x","Portable-Pro-Table-Black_ifpo1w"];

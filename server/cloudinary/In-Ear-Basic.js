@@ -1,1 +1,0 @@
-export const In_Ear_Basic = ["In-Ear-Basic-Detail-Black_ue45k3","In-Ear-Basic-Detail-Red_ooddya","In-Ear-Basic-Detail-White_haulq8","In-Ear-Basic-General-Red_wdqxrl","In-Ear-Basic-General-Red-Black_ujhxny","In-Ear-Basic-General-Red-White_sz9jbr","In-Ear-Basic-Model-Black_vufn88","In-Ear-Basic-Model-Red_q1znuq","In-Ear-Basic-Model-White_oowajl"];

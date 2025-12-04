@@ -19,6 +19,7 @@ const folders = [
   "Portable-Pro",
   "Soundbar-Basic",
   "Soundbar-Pro",
+  "HiFi-Basic",
 ];
 
 // const folders = {

@@ -1,1 +1,0 @@
-export const Portable_Basic = ["Portable-Basic-Zenit-Black_ofe3dm"];

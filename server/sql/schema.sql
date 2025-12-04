@@ -155,6 +155,7 @@ CREATE TABLE public.product (
   name character varying NOT NULL,
   price numeric NOT NULL,
   description text NOT NULL,
+  photos jsonb NOT NULL DEFAULT '{}'::jsonb,
   feature_1 character varying NOT NULL,
   feature_2 character varying NOT NULL,
   feature_3 character varying NOT NULL,

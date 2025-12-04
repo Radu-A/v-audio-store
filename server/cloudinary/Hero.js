@@ -1,1 +1,0 @@
-export const Hero = ["Hero-HiFi_gt0rhd","Hero-HiFi-Light-Dark_epany8","Hero-Portable_mmwxfz","Hero-Soundbar_ohn3bx"];
