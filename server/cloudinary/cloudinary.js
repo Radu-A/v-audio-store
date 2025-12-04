@@ -8,31 +8,32 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// const folders = [
-//   "Hero",
-//   "Over-Ear-Basic",
-//   "Over-Ear-Pro",
-//   "Over-Ear-Advance",
-//   "In-Ear-Basic",
-//   "In-Ear-Pro",
-//   "Portable-Basic",
-//   "Portable-Pro",
-//   "Soundbar-Basic",
-//   "Soundbar-Pro",
-// ];
+const folders = [
+  "Hero",
+  "Over-Ear-Basic",
+  "Over-Ear-Pro",
+  "Over-Ear-Advance",
+  "In-Ear-Basic",
+  "In-Ear-Pro",
+  "Portable-Basic",
+  "Portable-Pro",
+  "Soundbar-Basic",
+  "Soundbar-Pro",
+];
 
-const folders = {
-  Hero: "Hero",
-  "V-Mute Core": "Over-Ear-Basic",
-  "V-Mute Advance": "Over-Ear-Pro",
-  "V-Mute Pro": "Over-Ear-Advance",
-  "V-Flow Go": "In-Ear-Basic",
-  "V-Flow ANC": "In-Ear-Pro",
-  "V-Roam Mini": "Portable-Basic",
-  "V-Roam Beast": "Portable-Pro",
-  "V-Stage Solo": "Soundbar-Basic",
-  "V-Stage Cinema 300": "Soundbar-Pro",
-};
+// const folders = {
+//   Hero: "Hero",
+//   "V-Mute Core": "Over-Ear-Basic",
+//   "V-Mute Advance": "Over-Ear-Pro",
+//   "V-Mute Pro": "Over-Ear-Advance",
+//   "V-Flow Go": "In-Ear-Basic",
+//   "V-Flow ANC": "In-Ear-Pro",
+//   "V-Roam Mini": "Portable-Basic",
+//   "V-Roam Beast": "Portable-Pro",
+//   "V-Stage Solo": "Soundbar-Basic",
+//   "V-Stage Cinema 300": "Soundbar-Pro",
+// };
+
 const createFile = async (name, content) => {
   try {
     const fileContent = `export const ${name.replace(/-/g, "_")} = ${content};`;
@@ -62,7 +63,8 @@ const getPhotosByProduct = async (folder) => {
 const getAllPhotos = async () => {
   const promises = folders.map(async (folder) => {
     const data = await getPhotosByProduct(folder);
-    const content = JSON.stringify(data);
+    const publicIds = data.map((item) => item.public_id);
+    const content = JSON.stringify(publicIds);
     createFile(folder, content);
   });
   try {
