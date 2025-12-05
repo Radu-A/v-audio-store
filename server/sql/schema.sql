@@ -39,7 +39,7 @@ CREATE TYPE public.inventory_status AS ENUM (
 CREATE TYPE public.item_color AS ENUM (
     'BLACK',
     'WHITE',
-    'RED',
+    'RED'
 );
 
 CREATE TYPE public.order_status AS ENUM (
