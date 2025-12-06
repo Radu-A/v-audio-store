@@ -10,7 +10,7 @@ const runSchema = async () => {
   const client = await pool.connect();
 
   try {
-    const sqlPath = path.join(__dirname, "../sql/schema.sql");
+    const sqlPath = path.join(__dirname, "./schema.sql");
 
     console.log(`📂 Reading file from: ${sqlPath}`);
 
