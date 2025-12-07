@@ -13,29 +13,26 @@ import {
   variants,
 } from "./data.js";
 
-// ----------------------
-// CLOUDINARY
-// ----------------------
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// ----------------------
+// CLOUDINARY
+// ----------------------
 const getPhotosBySlug = async (slug) => {
-  // console.log(`🔄 Buscando fotos en folder: ${slug}...`); // Opcional: mucho ruido en consola
   try {
     const result = await cloudinary.api.resources({
       type: "upload",
-      prefix: slug, // Usar 'prefix' suele ser más seguro que 'folder' para búsquedas exactas
+      prefix: slug,
       max_results: 10,
     });
     return result;
   } catch (error) {
-    console.error(
-      `⚠️ Error conectando con Cloudinary para ${slug}: ${error.message}`
-    );
-    return null; // Retornamos null para manejarlo elegantemente
+    console.error(`⚠️ Error Cloudinary ${slug}: ${error.message}`);
+    return null;
   }
 };
 
@@ -45,11 +42,12 @@ const getPhotosBySlug = async (slug) => {
 const truncate = async () => {
   const client = await pool.connect();
   try {
-    console.log("⏳ Iniciando el borrado de tablas...");
+    console.log("⏳ Cleaning tables...");
     await client.query(truncateQuery);
-    console.log("✅ OK");
-  } catch (error) {
-    console.error(`❌ Error durante la inserción de main categories: ${error}`);
+    console.log("✅ Tables cleaned.");
+  } catch (e) {
+    console.error("❌ Truncate error:", e);
+    throw e;
   } finally {
     client.release();
   }

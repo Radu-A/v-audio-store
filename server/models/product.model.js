@@ -1,13 +1,16 @@
 import pool from "../pg/db.js";
 
-const getAllProducts = async () => {
-  const result = await pool.query("SELECT * FROM product");
-  return result.rows;
+import { getAllProductsQuery } from "../pg/queries.js";
+
+const getAllProductsModel = async () => {
+  try {
+    const response = await pool.query(getAllProductsQuery);
+    console.log(response);
+    return response.rows;
+  } catch (error) {
+    console.error(`Something went wrong in model: ${error}`);
+    throw error;
+  }
 };
 
-// const getAllProducts = async () => {
-//   const result = await sql`SELECT * FROM product`;
-//   return result;
-// };
-
-export { getAllProducts };
+export { getAllProductsModel };

@@ -1,14 +1,12 @@
-import { getAllProducts } from "../models/product.model.js";
+import { getAllProductsModel } from "../models/product.model.js";
 
-const getProducts = async (req, res, next) => {
-  console.log("getProducts");
-
+const getAllProducts = async (req, res) => {
   try {
-    const data = await getAllProducts();
-    res.status(200).json(data);
+    const products = await getAllProductsModel();
+    res.status(200).json(products);
   } catch (error) {
-    next(error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
-export { getProducts };
+export { getAllProducts };

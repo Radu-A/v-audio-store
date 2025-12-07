@@ -43,15 +43,61 @@ export default function Header() {
               isScrolled ? "text-gray-600" : "text-gray-200"
             }`}
           >
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Auriculares
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Altavoces bluetoth
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Audio para el hogar
-            </a>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Auriculares
+              </a>{" "}
+              <div className="absolute top-8 -left-22 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-over-ear.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+                <img
+                  src="icons\icon-in-ear.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Altavoces Bluetooth
+              </a>{" "}
+              <div className="absolute top-8 -left-0 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-bluetooth.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Audio para el hogar
+              </a>{" "}
+              <div className="absolute top-8 -left-15 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-soundbar.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+                <img
+                  src="icons\icon-hifi.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Icons */}
