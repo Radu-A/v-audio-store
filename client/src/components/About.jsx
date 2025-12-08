@@ -5,7 +5,7 @@ const pStyle = "text-lg font-regular text-center";
 
 export default function About() {
   return (
-    <section className="p-15 bg-white">
+    <section className="px-15 py-20 bg-white">
       <div className="conainer grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className={divClass}>
           <div>
