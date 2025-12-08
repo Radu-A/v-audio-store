@@ -7,10 +7,8 @@ export default function TopSales() {
     const fetchProducts = async () => {
       try {
         const response = await fetch("http://localhost:3000/api/products");
-        const data = await response.json();
-        console.log(data);
-
-        setProducts(data);
+        const { data } = await response.json();
+        setProducts(data.products);
       } catch (error) {
         setProducts(error);
       }
