@@ -1,7 +1,7 @@
 import { getAllProductsModel } from "../models/product.model.js";
 import AppError from "../utils/AppError.js";
 
-const getAllProducts = async (req, res) => {
+const getAllProducts = async (req, res, next) => {
   try {
     const products = await getAllProductsModel();
     if (!products || products.length === 0) {

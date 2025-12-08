@@ -84,8 +84,8 @@ export const secondaryCategories = [
 ];
 
 export const productsQuery = `INSERT INTO public.product
-(category_id, name, slug, price, description, feature_1, feature_2, feature_3, specs)
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
+(category_id, name, slug, price, short_description, description, feature_1, feature_2, feature_3, specs)
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
 
 export const products = [
   // --- Categoría: Auriculares de Diadema (ID 1) ---
@@ -94,6 +94,8 @@ export const products = [
     name: "V-Mute Core",
     slug: "v-mute-core",
     price: 89.0,
+    short_description:
+      "Minimalismo ligero con 24h de batería y graves potentes.",
     description:
       "Lo esencial, perfeccionado. Un diseño minimalista construido en policarbonato mate de alta resistencia. Pensados para quienes buscan un sonido honesto, ligero y cómodo para el uso diario sin complicaciones innecesarias.",
     feature_1: "Ultraligeros: Solo 210g. Olvidarás que los llevas puestos.",
@@ -120,6 +122,8 @@ export const products = [
     name: "V-Mute Advance",
     slug: "v-mute-advance",
     price: 159.0,
+    short_description:
+      "Cancelación de ruido híbrida y conexión multipunto para la oficina.",
     description:
       "El equilibrio perfecto entre silencio y sonido. Incorpora nuestra tecnología de Cancelación Activa de Ruido (ANC) híbrida y acabados en piel sintética premium. La herramienta definitiva para la oficina o tus viajes de negocios.",
     feature_1: "ANC Híbrido: Filtra hasta 35dB de ruido de tráfico y oficinas.",
@@ -145,6 +149,8 @@ export const products = [
     name: "V-Mute Pro Master",
     slug: "v-mute-pro",
     price: 299.0,
+    short_description:
+      "Audio Hi-Res certificado y diafragma de biocelulosa para audiófilos.",
     description:
       "Sonido Puro. Sin Interrupciones. La joya de la corona diseñada con diafragmas de biocelulosa y algoritmos adaptativos de última generación. Para el audiófilo que busca el silencio absoluto y una fidelidad sin concesiones.",
     feature_1:
@@ -173,6 +179,8 @@ export const products = [
     name: "V-Flow Go",
     slug: "v-flow-go",
     price: 69.0,
+    short_description:
+      "Resistentes al sudor (IPX5) y ultra compactos para deporte.",
     description:
       'Tu música en movimiento. Diseñados para resistir, estos auriculares compactos vienen en un estuche con acabado "piedra de río" suave al tacto. El compañero ideal para el gimnasio o el metro.',
     feature_1:
@@ -197,6 +205,8 @@ export const products = [
     name: "V-Flow ANC",
     slug: "v-flow-anc",
     price: 149.0,
+    short_description:
+      "Cancelación de ruido líder y carga inalámbrica en formato mini.",
     description:
       "Silencio de bolsillo. Toda la tecnología de la serie Mute condensada en un diseño ergonómico. Sumérgete en un sonido inmersivo con una cancelación de ruido líder en su clase y un perfil sonoro personalizable.",
     feature_1: "Inmersión Total: ANC ajustable en 10 niveles desde la app.",
@@ -222,6 +232,8 @@ export const products = [
     name: "V-Roam Mini",
     slug: "v-roam-mini",
     price: 59.0,
+    short_description:
+      "Tamaño palma de mano, sumergible (IP67) y sonido estéreo.",
     description:
       "Pequeño pero matón. Un cubo engomado listo para la aventura. Cabe en la palma de tu mano pero tiene la ingeniería acústica necesaria para llenar una habitación pequeña con sonido rico y detallado.",
     feature_1:
@@ -245,6 +257,7 @@ export const products = [
     name: "V-Roam Beast",
     slug: "v-roam-beast",
     price: 329.0,
+    short_description: "Potencia bruta, graves sísmicos y powerbank integrado.",
     description:
       "La fiesta empieza aquí. Potencia bruta para exteriores con unos graves que golpean el pecho. Diseñado para resistir los elementos y durar todo el fin de semana sin pasar por el enchufe.",
     feature_1:
@@ -273,6 +286,8 @@ export const products = [
     name: "V-Stage Solo",
     slug: "v-stage-solo",
     price: 199.0,
+    short_description:
+      "Barra 2.1 todo en uno con subwoofers integrados. Sin líos de cables.",
     description:
       'Mejora tu TV al instante. Barra de sonido 2.1 "All-in-one" con subwoofers integrados en el chasis. Perfecta para salones minimalistas o dormitorios donde el espacio es un lujo, pero el sonido no es negociable.',
     feature_1:
@@ -297,6 +312,7 @@ export const products = [
     name: "V-Stage Cinema 300",
     slug: "v-stage-cinema",
     price: 549.0,
+    short_description: "Envolvente 5.0 real con tecnología MultiBeam y WiFi.",
     description:
       "Experiencia inmersiva 5.0 real. Olvídate de los cables traseros. Esta barra utiliza la tecnología MultiBeam para rebotar el sonido en las paredes y crear una burbuja de audio que te envuelve completamente.",
     feature_1:
@@ -324,6 +340,8 @@ export const products = [
     name: "V-Sense Mini",
     slug: "v-sense-mini",
     price: 89.0,
+    short_description:
+      "Diseño sostenible, tejido Kvadrat y asistente de voz integrado.",
     description:
       "Inteligencia ambiental. Un altavoz inteligente que no parece tecnología, sino decoración. Recubierto de tejido acústico Kvadrat y con una base de madera sostenible. Pequeño, discreto, pero con una presencia sonora sorprendente.",
     feature_1:

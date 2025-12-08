@@ -186,7 +186,8 @@ CREATE TABLE public.product (
     category_id bigint NOT NULL,
     name character varying NOT NULL,
     slug character varying NOT NULL UNIQUE, -- Agrupa todas las variantes
-    price numeric NOT NULL, 
+    price numeric NOT NULL,
+    short_description character varying(255) NOT NULL,
     description text NOT NULL,
     feature_1 character varying NOT NULL,
     feature_2 character varying NOT NULL,

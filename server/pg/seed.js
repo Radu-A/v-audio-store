@@ -110,6 +110,7 @@ const insertProducts = async () => {
         product.name,
         product.slug,
         product.price,
+        product.short_description,
         product.description,
         product.feature_1,
         product.feature_2,
