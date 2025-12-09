@@ -1,18 +1,16 @@
 import { ShoppingCart } from "lucide-react";
 
-ShoppingCart;
-
 export default function ProductCard({ product, i }) {
   const photoURL = `https://res.cloudinary.com/ds9uwjcs7/image/upload/w_400/v1764931470/${product.photos[i]}.png`;
   return (
-    <article className="rounded-4xl overflow-hidden shadow-sm group hover:shadow-xl transition-all duration-300 ease-in-out">
+    <article className="group overflow-hidden rounded-4xl shadow-sm  hover:shadow-xl transition-all duration-300 ease-in-out">
       <div className="relative overflow-hidden">
         <img
           src={photoURL}
           alt={product.category}
-          className="w-full aspect-4/3 object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+          className="aspect-4/3 w-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
         />
-        <button className="absolute right-4 bottom-4 p-3 rounded-full bg-white cursor-pointer">
+        <button className="absolute bottom-0 right-4 p-3 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:bottom-4 transition-all duration-300 ease-in-out cursor-pointer hover:bg-amber-500 hover:text-white">
           <ShoppingCart size={20} />
         </button>
       </div>
