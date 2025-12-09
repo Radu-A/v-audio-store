@@ -11,7 +11,7 @@ export default function TopSales() {
         const { data } = await response.json();
         const topProducts = [
           data.products[0],
-          data.products[12],
+          data.products[14],
           data.products[20],
           data.products[24],
         ].filter((item) => item !== undefined);
@@ -26,10 +26,10 @@ export default function TopSales() {
   }, []);
 
   return (
-    <section className="px-5 py-20 bg-gray-200">
+    <section className="px-8 py-20 bg-gray-100">
       <span className="text-sm text-orange-500">COLECCIÓN</span>
       <h2 className="text-3xl font-bold text-gray-800">Los más buscados</h2>
-      <div className="md:grid grid-cols-2 gap-10">
+      <div className="mt-10 md:grid grid-cols-2 gap-8">
         {productList ? (
           <ProductCard product={productList[0]} i="2"></ProductCard>
         ) : (

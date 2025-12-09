@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, User, ShoppingBag, ShoppingCart  } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,10 +110,10 @@ export default function Header() {
               <Search size={20} />
             </button>
             <button className="hover:opacity-70 cursor-pointer">
-              <User size={20} />
+              <User size={22} />
             </button>
             <button className="relative hover:opacity-70 cursor-pointer">
-              <ShoppingBag size={20} />
+              <ShoppingCart size={22} />
               <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 2
               </span>
