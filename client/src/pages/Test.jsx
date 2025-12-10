@@ -9,6 +9,14 @@ import {
   Play,
   ChevronRight,
   ChevronLeft,
+  Instagram,
+  Twitter,
+  Facebook,
+  Youtube,
+  Globe,
+  ShieldCheck,
+  CreditCard,
+  ChevronDown, // Nuevo import
 } from "lucide-react";
 
 // Mock Data para simular tus productos generados por IA
@@ -77,6 +85,45 @@ const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // --- Lógica del Footer ---
+  const [footerOpen, setFooterOpen] = useState(null); // null, 'shop', 'support', 'company'
+
+  const toggleFooter = (section) => {
+    setFooterOpen(footerOpen === section ? null : section);
+  };
+
+  const FOOTER_LINKS = {
+    shop: {
+      title: "Explorar",
+      links: [
+        "Auriculares Over-Ear",
+        "In-Ear True Wireless",
+        "Altavoces Bluetooth",
+        "Soundbars",
+        "Ver Novedades",
+      ],
+    },
+    support: {
+      title: "Ayuda",
+      links: [
+        "Estado del pedido",
+        "Envíos y Devoluciones",
+        "Aura Care+ (Garantía)",
+        "Centro de Soporte",
+        "Contactar",
+      ],
+    },
+    company: {
+      title: "Empresa",
+      links: [
+        "Sobre Nosotros",
+        "Sostenibilidad",
+        "Prensa",
+        "Inversores",
+        "Carreras",
+      ],
+    },
+  };
   // Efecto para la navbar al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -463,82 +510,132 @@ const App = () => {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-gray-900 text-white py-16 border-t border-white/10">
+      {/* --- SMART FOOTER --- */}
+      <footer className="bg-gray-950 text-white pt-16 pb-8 border-t border-gray-800">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold tracking-tighter">AURA</h3>
-              <p className="text-gray-400 text-sm">
-                Diseñando el futuro del audio desde 2025. Sonido puro, diseño
-                honesto.
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 mb-16">
+            {/* 1. Brand Identity (Siempre visible y primero) */}
+            <div className="lg:w-1/3 space-y-6">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-white text-gray-950 flex items-center justify-center font-bold">
+                  A
+                </div>
+                <span className="text-2xl font-bold tracking-tighter">
+                  AURA
+                </span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+                Ingeniería acústica de vanguardia. Creamos herramientas para los
+                puristas del sonido.
               </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Tienda</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Auriculares
+              <div className="flex space-x-4 pt-2">
+                {[Instagram, Twitter, Facebook, Youtube].map((Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:bg-white hover:text-gray-950 transition-all duration-300"
+                  >
+                    <Icon size={18} />
                   </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Altavoces
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Accesorios
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Outlet
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Soporte</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Estado del pedido
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Envíos y Devoluciones
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Garantía
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Social</h4>
-              <div className="flex space-x-4">
-                {/* Social Placeholders */}
-                <div className="w-8 h-8 bg-white/10 rounded-full hover:bg-white/30 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 bg-white/10 rounded-full hover:bg-white/30 transition-colors cursor-pointer"></div>
-                <div className="w-8 h-8 bg-white/10 rounded-full hover:bg-white/30 transition-colors cursor-pointer"></div>
+                ))}
               </div>
             </div>
+
+            {/* 2. Dynamic Links Section (Grid en Desktop / Acordeón en Mobile) */}
+            <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
+              {Object.entries(FOOTER_LINKS).map(([key, section]) => (
+                <div
+                  key={key}
+                  className="border-b border-gray-800 md:border-none"
+                >
+                  {/* Header del Acordeón / Título Desktop */}
+                  <button
+                    onClick={() => window.innerWidth < 768 && toggleFooter(key)}
+                    className="w-full flex justify-between items-center py-4 md:py-0 md:mb-6 group"
+                  >
+                    <h4 className="font-bold text-lg text-left">
+                      {section.title}
+                    </h4>
+                    {/* Flecha solo visible en móvil */}
+                    <ChevronDown
+                      className={`md:hidden text-gray-500 transition-transform duration-300 ${
+                        footerOpen === key ? "rotate-180" : ""
+                      }`}
+                      size={20}
+                    />
+                  </button>
+
+                  {/* Lista de enlaces (Animación de altura en móvil) */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out md:block md:h-auto ${
+                      footerOpen === key
+                        ? "max-h-60 opacity-100 mb-6"
+                        : "max-h-0 opacity-0 md:opacity-100 md:max-h-none"
+                    }`}
+                  >
+                    <ul className="space-y-3 text-gray-400 text-sm">
+                      {section.links.map((link, idx) => (
+                        <li key={idx}>
+                          <a
+                            href="#"
+                            className="hover:text-orange-500 transition-colors block py-1"
+                          >
+                            {link}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs">
-            © 2025 AURA Audio. Todos los derechos reservados.
+
+          {/* 3. Trust & Badges (Reagrupado para móvil) */}
+          <div className="border-t border-gray-800 py-8 mb-4 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-gray-500 text-sm">
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={18} className="text-gray-400" />
+                <span>Pagos Seguros SSL</span>
+              </div>
+              <div className="hidden sm:block w-1 h-1 bg-gray-700 rounded-full"></div>
+              <div className="flex items-center gap-2">
+                <Globe size={18} className="text-gray-400" />
+                <span>Envíos Internacionales</span>
+              </div>
+            </div>
+
+            {/* Mockup de tarjetas */}
+            <div className="flex items-center gap-4 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+              <CreditCard size={24} />
+              <span className="font-serif font-bold italic">VISA</span>
+              <span className="font-bold">
+                Pay<span className="text-blue-400 italic">Pal</span>
+              </span>
+            </div>
+          </div>
+
+          {/* 4. Bottom Legal (Stack en móvil, Row en desktop) */}
+          <div className="flex flex-col-reverse md:flex-row justify-between items-center text-xs text-gray-500 gap-6 pt-4">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+              <span>© 2025 AURA Audio Inc.</span>
+              <div className="flex gap-4 md:gap-6 mt-2 md:mt-0">
+                <a href="#" className="hover:text-white transition-colors">
+                  Privacidad
+                </a>
+                <a href="#" className="hover:text-white transition-colors">
+                  Cookies
+                </a>
+                <a href="#" className="hover:text-white transition-colors">
+                  Términos
+                </a>
+              </div>
+            </div>
+
+            <button className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors border border-gray-700 px-4 py-2 rounded-full hover:border-gray-500 bg-gray-900/50">
+              <Globe size={14} />
+              <span>España — EUR</span>
+            </button>
           </div>
         </div>
       </footer>
