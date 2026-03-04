@@ -4,6 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import productRoutes from "./routes/product.routes.js";
+import AppError from "./utils/AppError.js";
+import globalErrorHandler from "./middlewares/error.controller.js";
 
 dotenv.config();
 
@@ -26,6 +28,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+app.all(/(.*)/, (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+});
+app.use(globalErrorHandler);
 
 // Launch
 app.listen(PORT, () => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Search, User, ShoppingBag, Menu, X } from "lucide-react";
+import { Search, User, ShoppingBag, ShoppingCart  } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,15 +43,61 @@ export default function Header() {
               isScrolled ? "text-gray-600" : "text-gray-200"
             }`}
           >
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Auriculares
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Altavoces bluetoth
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
-              Audio para el hogar
-            </a>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Auriculares
+              </a>{" "}
+              <div className="absolute top-8 -left-22 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-over-ear.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+                <img
+                  src="icons\icon-in-ear.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Altavoces Bluetooth
+              </a>{" "}
+              <div className="absolute top-8 -left-0 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-bluetooth.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
+            <div className="relative group">
+              <a
+                href="#"
+                className="hover:text-orange-500 transition-colors peer"
+              >
+                Audio para el hogar
+              </a>{" "}
+              <div className="absolute top-8 -left-15 h-0 overflow-hidden flex gap-2 group-hover:h-30 transition-all duration-300 ease-in-out">
+                <img
+                  src="icons\icon-soundbar.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+                <img
+                  src="icons\icon-hifi.png"
+                  alt=""
+                  className="shrink-0 size-30 rounded-2xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Icons */}
@@ -64,10 +110,10 @@ export default function Header() {
               <Search size={20} />
             </button>
             <button className="hover:opacity-70 cursor-pointer">
-              <User size={20} />
+              <User size={22} />
             </button>
             <button className="relative hover:opacity-70 cursor-pointer">
-              <ShoppingBag size={20} />
+              <ShoppingCart size={22} />
               <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
                 2
               </span>

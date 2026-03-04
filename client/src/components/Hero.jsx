@@ -13,21 +13,21 @@ const HERO_SLIDES = [
     title: "Sonido gigante, un altavoz compacto",
     subtitle: "200 wattios de potencia para disfrutarlos donde quieras.",
     image:
-      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1763900159/Hero-Portable_mmwxfz.png",
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1765355961/v-roam-beast-white-hero_xc1ks5.png",
     cta: "Explorar Altavoces",
   },
   {
     title: "Música en estado puro",
     subtitle: "El sonido más fiel sobre el diseño más actual.",
     image:
-      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1763985705/Hero-HiFi-Light-Dark_epany8.png",
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1765355961/v-sense-mini-black-hero_oifdzy.png",
     cta: "Ver Artículo",
   },
   {
     title: "Una experiencia inmersiva",
     subtitle: "Vive el cine como nunca lo habías vivido antes.",
     image:
-      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1763975789/Hero-Soundbar_ohn3bx.png",
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/v1765355961/v-stage-cinema-black-hero_ak3dff.png",
     cta: "Ver Artículo",
   },
 ];
